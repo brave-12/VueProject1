@@ -57,17 +57,23 @@ router.beforeEach(async (to, from, next) => {
     // 用户登录了  才会有 token
     let token = store.state.user.token
     // 用户信息
-    let name = store.state.user.userInfo.name
+    // 因为这个name的值不能及时获取  所以额外添加一个定时器
+    setTimeout(() => {
+        let name = store.state.user.userName
+        // console.log(name);
+    }, 1000);
+    
+    
     if (token) {
         // 如果用户已经登录  不能去 /login 登录页面    跳回首页
-        if (to.path == "/login"||to.path == "/register") {
-            next()
+        if (to.path == "/login") {
+            // next()
             // 不知道为什么有token但是没登陆  先跳过
-            // next('/home')
+            next('/home')
         } else {
             // 登录了  但是去的不是 login
             // 如果用户名已有(也就是有用户信息的情况下点击其他地方跳转)
-            if (name) {
+            if (name) {          
                 next()
             } else {
                 // 没有用户信息

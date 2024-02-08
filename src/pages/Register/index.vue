@@ -6,7 +6,7 @@
         注册新用户
         <span class="go">
           我有账号，去
-          <a href="login.html" target="_blank">登陆</a>
+          <router-link to="/login">登陆</router-link>
         </span>
       </h3>
       <div class="content">
@@ -64,7 +64,7 @@
           v-validate="{ required: true, 'agree':true}"
           :class="{ invalid: errors.has('agree') }"
         />
-        <span>同意协议并注册《尚品汇用户协议》</span>
+        <span>同意协议并注册《百货购物用户协议》</span>
         <span class="error-msg">{{ errors.first("agree") }}</span>
       </div>
       <div class="btn">
@@ -80,12 +80,12 @@
         <li>联系客服</li>
         <li>商家入驻</li>
         <li>营销中心</li>
-        <li>手机尚品汇</li>
+        <li>手机百货</li>
         <li>销售联盟</li>
-        <li>尚品汇社区</li>
+        <li>百货购物社区</li>
       </ul>
-      <div class="address">地址：北京市昌平区宏福科技园综合楼6层</div>
-      <div class="beian">京ICP备19006430号</div>
+      <p>地址：福建省福州市永泰县葛岭镇学院路1号福州工商学院</p>
+      <p>Copyright © 2022-2024 百货购物 版权所有</p>
     </div>
   </div>
 </template>

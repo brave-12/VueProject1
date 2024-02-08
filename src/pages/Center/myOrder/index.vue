@@ -41,7 +41,7 @@
                   <img :src="cart.imgUrl" style="width:100px;height:100px" />
                   <a href="#" class="block-text">{{cart.skuName}}</a>
                   <span>x{{cart.skuNum}}</span>
-                  <a href="#" class="service">售后申请</a>
+                  <div class="service">售后申请</div>
                 </div>
               </td>
               <!-- rowspan 需要合并的长度 设置为循环的列表个数即可   index==0 是为了只在第一次循环的时候遍历这些数据一次即可 -->
@@ -53,12 +53,12 @@
                 </ul>
               </td>
               <td :rowspan="order.orderDetailList.length" v-if="index==0" width="8%" class="center">
-                <a href="#" class="btn">{{order.orderStatusName}}</a>
+                <a class="btn">{{order.orderStatusName}}</a>
               </td>
               <td :rowspan="order.orderDetailList.length" v-if="index==0" width="13%" class="center">
                 <ul class="unstyled">
                   <li>
-                    <a href="mycomment.html" target="_blank">评价|晒单</a>
+                    <a class="btn">评价|晒单</a>
                   </li>
                 </ul>
               </td>

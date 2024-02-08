@@ -5,6 +5,10 @@ module.exports = {
   lintOnSave:false,
   // 代理服务器配置
   devServer: {
+    // 当出现编译错误或警告时，在浏览器中显示全屏覆盖。
+    client: {
+      overlay: false,
+    },
     proxy: {
      '/api': {
         target: 'http://gmall-h5-api.atguigu.cn', // 目标路径，别忘了加http和端口号

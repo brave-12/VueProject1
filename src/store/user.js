@@ -9,6 +9,8 @@ const state = {
     token: getToken(),
     // 用户信息
     userInfo: {},
+    // 用户名称
+    userName: ''
 }
 // mutiations:修改state的唯一手段
 const mutations = {
@@ -21,11 +23,15 @@ const mutations = {
     GETUSERINFO (state, userInfo) {
         state.userInfo = userInfo
     },
+    GETUSERNAME (state, userName) {
+        state.userName = userName;
+   },
     // 清除本地数据
     CLEAR (state) {
         // 把仓库中相关用户信息清空
         state.token = ''
         state.userInfo = {}
+        state.userName = {}
         // 把本地用户数据清空
         localStorage.removeItem('TOKEN')
     },
@@ -74,8 +80,14 @@ const actions = {
         if (result.code == 200) {
             //  提交用户信息
             commit("GETUSERINFO", result.data)
-        } 
+            commit("GETUSERNAME", result.data.name)
+            // console.log(result.data.name);
+            return 'ok';
+        }  else {
+            return Promise.reject();
+       }
     },
+
     // 退出登陆
     async userLogout ({ commit }) {
         // 只是向服务器发一次请求  通知服务器清除token
@@ -91,9 +103,7 @@ const actions = {
     },
     
 }
-const getters = {
-
-}
+const getters = { }
 
 export default {
     state,

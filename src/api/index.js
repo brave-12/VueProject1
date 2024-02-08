@@ -65,7 +65,7 @@ export const reqUserLogin = (data)=>requests({url:'/user/passport/login',data,me
 
 // 获取用户信息(需要带着用户的token向服务器要用户信息)
 // URL:/api/user/passport/auth/getUserInfo  method:get
-export const reqUserInfo = ()=>requests({url:'/user/passport/auth/getUserInfo',method:"get"})
+export const reqUserInfo = ()=>requests({url:`/user/passport/auth/getUserInfo`,method:'get'});
 
 // 退出登陆
 // URL:/api/user/passport/logout  method:get

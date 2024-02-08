@@ -24,7 +24,7 @@ export default [
     {
         path: "/center",
         component: Center,
-        // 路由懒加载直接写在这把的话   上面就不用import了  直接在这把 import 
+        // 路由懒加载直接写在这边的话   上面就不用import了  直接在这把 import 
         // component: ()=>import('@/pages/home'),
         meta: { show: true },
         // 二级路由组件  不用写 /

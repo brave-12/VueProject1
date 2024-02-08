@@ -63,12 +63,12 @@
         <li>联系客服</li>
         <li>商家入驻</li>
         <li>营销中心</li>
-        <li>手机尚品汇</li>
+        <li>手机百货</li>
         <li>销售联盟</li>
-        <li>尚品汇社区</li>
+        <li>百货购物社区</li>
       </ul>
-      <div class="address">地址：北京市昌平区宏福科技园综合楼6层</div>
-      <div class="beian">京ICP备19006430号</div>
+      <p>地址：福建省福州市永泰县葛岭镇学院路1号福州工商学院</p>
+      <p>Copyright © 2022-2024 百货购物 版权所有</p>
     </div>
   </div>
 </template>
@@ -107,6 +107,7 @@ export default {
 .login-container {
   .login-wrap {
     height: 487px;
+    // background-color: #e93854;
     background-color: #e93854;
 
     .login {
@@ -115,6 +116,7 @@ export default {
       margin: 0 auto;
       // 如果要使用@ 在style中需要 ~@ 这样写
       background: url(./images/loginbg.png) no-repeat;
+      background-position: 0 50%;
     }
 
     .loginform {

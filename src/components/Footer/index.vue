@@ -48,13 +48,13 @@
             <li>夺宝岛</li>
             <li>DIY装机</li>
             <li>延保服务</li>
-            <li>尚品汇E卡</li>
-            <li>尚品汇通信</li>
+            <li>百货购物E卡</li>
+            <li>百货购物通信</li>
           </ul>
         </div>
         <div class="footerItem">
           <h4>帮助中心</h4>
-          <img src="./images/wx_cz.jpg" />
+          <img src="./images/bz.jpg" />
         </div>
       </div>
       <div class="copyright">
@@ -68,7 +68,7 @@
             <span class="space"></span>
           </li>
           <li>
-            关于我们
+            人才招聘
             <span class="space"></span>
           </li>
           <li>
@@ -84,21 +84,21 @@
             <span class="space"></span>
           </li>
           <li>
-            关于我们
+            广告服务 
             <span class="space"></span>
           </li>
           <li>
-            营销中心
+            购物社区
             <span class="space"></span>
           </li>
           <li>
-            友情链接
+            广告服务
             <span class="space"></span>
           </li>
-          <li>关于我们</li>
+          <li>购物公益</li>
         </ul>
-        <p>地址：北京市昌平区宏福科技园综合楼6层</p>
-        <p>京ICP备19006430号</p>
+        <p>地址：福建省福州市永泰县葛岭镇学院路1号福州工商学院</p>
+        <p>Copyright © 2022-2024 百货购物 版权所有</p>
       </div>
     </div>
   </div>

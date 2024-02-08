@@ -3,7 +3,33 @@
     <h3 class="title">填写并核对订单信息</h3>
     <div class="content">
       <h5 class="receive">收件人信息</h5>
-      <div class="address clearFix" v-for="(address,index) in addressInfo" :key="address.id">
+      <!-- addressInfo 没有的时候显示的默认地址 -->
+      <div v-if="Object.keys(addressInfo).length === 0">
+        <div class="address clearFix">
+          <span class="username selected">张三</span>
+          <p>
+            <span class="s1">福建省福州市永泰县葛岭镇学院路1号福州工商学院</span>
+            <span class="s2">15010658793</span>
+            <span class="s3">默认地址</span>
+          </p>
+        </div>
+        <div class="address clearFix">
+          <span class="username">李四</span>
+          <p>
+            <span class="s1">福建省福州市永泰县葛岭镇学院路1号福州工商学院</span>
+            <span class="s2">13590909098</span>
+          </p>
+        </div>
+        <div class="address clearFix">
+          <span class="username">王五</span>
+          <p>
+            <span class="s1">福建省福州市永泰县葛岭镇学院路1号福州工商学院</span>
+            <span class="s2">18012340987</span>
+          </p>
+        </div>
+      </div>
+
+      <div v-else class="address clearFix" v-for="(address,index) in addressInfo" :key="address.id">
         <!-- span 是否勾选取决于 address.isDefault 是否为 1 -->
         <span class="username" :class="{selected:address.isDefault==1}">{{address.consignee}}</span>
         <p @click="changeDefault(address,addressInfo)">
@@ -13,6 +39,8 @@
           <span class="s3" v-show="address.isDefault==1">{{address.userAddress}}</span>
         </p>
       </div>
+
+      
 
       <div class="line"></div>
       <h5 class="pay">支付方式</h5>
@@ -25,8 +53,9 @@
       <div class="way">
         <h5>配送方式</h5>
         <div class="info clearFix">
-          <span class="s1">天天快递</span>
-          <p>配送时间：预计8月10日（周三）09:00-15:00送达</p>
+          <span class="s1 selected">天天快递</span>
+          <span class="s1">上门自提</span>
+          <p>配送时间：预计5月15日（周三）09:00-15:00送达</p>
         </div>
       </div>
       <!-- 商品清单 -->
@@ -90,10 +119,11 @@
       </div>
       <div class="receiveInfo">
         寄送至:
-        <span>{{userDefaultAddress.fullAddress}}</span>
+        <span v-if="userDefaultAddress.fullAddress">{{userDefaultAddress.fullAddress}} </span>
+        <span v-else>福建省福州市永泰县葛岭镇学院路1号福州工商学院</span>
         收货人：
-        <span>{{userDefaultAddress.consignee}}</span>
-        <span>{{userDefaultAddress.phoneNum}}</span>
+        <span v-if="userDefaultAddress.fullAddress"> {{userDefaultAddress.consignee}} {{userDefaultAddress.phoneNum}}</span>
+        <span v-else>张三 15010658793</span>
       </div>
     </div>
     <div class="sub clearFix">
@@ -113,7 +143,7 @@ export default {
       // 收集买家的留言信息
       msg: '',
       // 订单号
-      orderId:''
+      orderId: ''
     };
   },
   // 生命周期函数:挂载完毕  页面渲染完成执行
@@ -164,12 +194,12 @@ export default {
         orderDetailList: this.orderInfo.detailArrayList
       }
       // 需要带参数：tradeNo
-      let result = await this.$API.reqSubmitOrder(tradeNo,data)
-      if(result.code==200){
+      let result = await this.$API.reqSubmitOrder(tradeNo, data)
+      if (result.code == 200) {
         // 提交订单成功  吧订单号的data值返回
         this.orderId = result.data
         // 路由跳转+路由传参
-        this.$router.push('/pay?orderId='+this.orderId)
+        this.$router.push('/pay?orderId=' + this.orderId)
       } else {
         // 提交失败
         console.log(result.data)
@@ -297,6 +327,26 @@ export default {
           line-height: 30px;
           text-align: center;
           margin-right: 10px;
+          position: relative;
+        }
+
+      .s1::after {
+        content: "";
+        display: none;
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background: url(./images/choosed1.png) no-repeat;
+      }
+
+        .s1.selected {
+          border-color: #e1251b;
+        }
+
+        .s1.selected::after {
+          display: block;
         }
 
         p {

@@ -4,7 +4,7 @@
     <div class="top">
       <div class="container">
         <div class="loginList">
-          <p>尚品汇欢迎您！</p>
+          <p>百货购物商城欢迎您！</p>
           <!-- 没有用户名 -->
           <p v-if="!userName">
             <span>请</span>
@@ -21,12 +21,12 @@
         <div class="typeList">
           <router-link to="/center/myorder">我的订单</router-link>
           <router-link to="/shopcart">我的购物车</router-link>
-          <router-link to="">我的尚品汇</router-link>
-          <router-link to="">尚品汇会员</router-link>
-          <router-link to="">企业采购</router-link>
-          <router-link to="">关注尚品汇</router-link>
-          <router-link to="">合作招商</router-link>
+          <router-link to="">商城会员</router-link>
           <router-link to="">商家后台</router-link>
+          <router-link to="">企业采购</router-link>
+          <router-link to="">网站导航</router-link>
+          <router-link to="">合作招商</router-link>
+          <router-link to="">网站无障碍</router-link>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@ export default {
         // 派发action
         await this.$store.dispatch('userLogout')
         // 退出后跳转到首页
-        // this.$router.push('./home')
+        this.$router.push('./home')
       } catch (error) {
         alert(message.error)
       }

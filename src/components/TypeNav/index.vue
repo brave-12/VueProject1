@@ -54,7 +54,7 @@
             <nav class="nav">
                 <a href="###">服装城</a>
                 <a href="###">美妆馆</a>
-                <a href="###">尚品汇超市</a>
+                <a href="###">百货购物</a>
                 <a href="###">全球购</a>
                 <a href="###">闪购</a>
                 <a href="###">团购</a>
@@ -213,7 +213,8 @@
                     // 可以直接在item下面增加 .item:hover{background:skyblue} 变背景颜色
                     .item {
                         h3 {
-                            line-height: 30px;
+                            cursor: pointer;
+                            line-height: 27px;
                             font-size: 14px;
                             font-weight: 400;
                             overflow: hidden;
@@ -224,6 +225,7 @@
                                 color: #333;
                             }
                         }
+                        .item:hover{background:skyblue}
 
                         .item-list {
                             display: none;
@@ -269,6 +271,7 @@
                                         em {
                                             float: left;
                                             height: 14px;
+                                            cursor: pointer;
                                             line-height: 14px;
                                             padding: 0 8px;
                                             margin-top: 5px;
